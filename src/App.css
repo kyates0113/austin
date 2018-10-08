@@ -1,0 +1,118 @@
+.App {
+  text-align: center;
+  font-family: Calibri;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #4484CE;
+
+  padding: 20px;
+  color: white;
+  box-shadow: 2px 3px #888888;
+  margin-bottom: 20px;
+  min-width: 100%;
+}
+
+.App-title {
+  font-size: 3.5em;
+
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+#Restaurant {
+  
+  text-align: left;
+  margin: 10px;
+  border-bottom: 2px solid #D8DBE2;
+}
+
+h1 {
+  margin: 10px;
+  font-size: 16px;
+}
+
+h2 {
+  margin: 10px;
+  font-size: 14px;
+}
+
+#Search {
+  padding: 10px;
+  border: 1px solid rgba(34,36,38,.15);
+  color: rgba(0,0,0,.87);
+  border-radius: .5rem;
+  outline: none;
+  margin: 20px;
+  min-width: 80%;
+  display: flex;
+  flex-wrap: none;
+  max-height: 38.75px;
+}
+
+#searchIcon{
+  color: #D8DBE2;
+  padding: 10px
+}
+
+#map {
+  min-width: 100%;
+  min-height: 100%;
+
+}
+
+input {
+  border: none;
+  font-size: 16px;
+  font-color: #D8DBE2;
+  padding: 10px;
+  min-width: 80%;
+  max-height: 18.75px;
+
+}
+
+
+#RestContainer {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 90%;
+  align-items: flex-start;
+  align-self: flex-start;
+
+
+}
+
+.ListingContainer {
+  display:flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-content: flex-start;
+  max-width: 35%;
+  max-height: 80vh;
+  min-height: 80vh;
+  margin: 10px;
+  overflow-y: scroll;
+
+}
+
+#mapContainer {
+  max-height: 80vh;
+  
+  flex-grow: 1;
+}
