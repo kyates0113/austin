@@ -1,6 +1,6 @@
-# MyReads Project
+# Weirdest places in Austin app
 
-This app will allow you to search for books and add them to shelves according to what you "want to read", "have read", or "are reading". 
+This app allows you to search for anything tagged as 'weird' from the FourSquare API in Austin, TX. 
 
 
 ## Running the project
@@ -8,7 +8,7 @@ This app will allow you to search for books and add them to shelves according to
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). 
 
 To get started - run:
-git clone https://github.com/kyates0113/reactnd-project-myreads-starter.git
+git clone https://github.com/kyates0113/austin.git
 
 After cloning:
 
@@ -17,12 +17,12 @@ After cloning:
 
 Compatible with google chrome and firefox. 
 
-
-
 ## Dependencies
+<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 
+## Important
 
-
+This search will not return results for all restaurants or places in Austin. 
 
 
 ## Contributing
