@@ -9,13 +9,15 @@ import Restaurants from './components/Restaurants';
 library.add(
   faSearch);
 
+
 class App extends Component {
 
   state = {
     venues : [],
     filteredVenues : [],
     query: "",
-    markers: []
+    markers: [],
+    infoWindow: []
 
   }
 
@@ -62,10 +64,8 @@ class App extends Component {
     var infowindow = new window.google.maps.InfoWindow({
     });
   
-
-
     this.state.venues.map((venue) => {
-            var infoContent = venue.venue.name;
+      var infoContent = venue.venue.name;
 
       var marker = new window.google.maps.Marker({
         position: {lat: venue.venue.location.lat, lng:venue.venue.location.lng}, 
@@ -73,9 +73,11 @@ class App extends Component {
         title: venue.venue.name
       });
 
-      marker.addListener('click', function() {
+      marker.addListener('click', ()=> {
         infowindow.setContent(infoContent)
         infowindow.open(map, marker);
+        console.log(infowindow);
+        this.setState({infoWindow: infowindow})
 
       });
     
@@ -98,19 +100,40 @@ class App extends Component {
         this.setState({
           venues: response.data.response.groups[0].items, filteredVenues: response.data.response.groups[0].items
         }, this.renderMap())
-        console.log(response.data.response.groups[0].items)
+        
       })
       .catch(error => {
         console.log("Error! "+ error)
       })
+  };
+
+  
+  handleClick = (restName, restId) => {
+        
+      this.state.markers.forEach((m) => {
+        if(m.title.toLowerCase().includes(restName.toLowerCase())) {
+            m.setAnimation(window.google.maps.Animation.BOUNCE) ;
+            setTimeout(function() {
+              m.setAnimation(null);
+            }, 800);
+            var infowindow =  new window.google.maps.InfoWindow({}); 
+            infowindow.setContent(restName)
+            this.setState({infoWindow: infowindow});
+        }
+        else {
+            
+        }
+      })
   }
+
+
 
 
   render() {
     return (
       <main className="App">
         <header className="App-header">
-            <h1 className="App-title">Austin</h1>
+            <h1 className="App-title">WEIRDEST PLACES IN AUSTIN</h1>
         </header>
         <div className="ListingContainer">
             <Search 
@@ -122,6 +145,7 @@ class App extends Component {
             <Restaurants 
               filteredVenues = {this.state.filteredVenues}
               query={this.state.query}
+              handleClick = {this.handleClick}
             />
           </div>
         <div id="mapContainer">

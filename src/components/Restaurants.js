@@ -7,15 +7,16 @@ class Restaurant extends Component {
   render() {
     return (
       
-    <div className="RestContainer">
+    <div className="RestContainer" >
         {this.props.filteredVenues
             .map((item, index) => {
               return (
-                <div id="Restaurant" key={index}>
+                <div id="Restaurant" 
+                    key={index} 
+                    onClick={()=> this.props.handleClick(item.venue.name, index)}
+                    >
                     <h1>{item.venue.name}</h1>
                     <h2>{item.venue.location.address}</h2>
-
-
                 </div>
               );
             })}

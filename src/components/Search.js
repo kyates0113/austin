@@ -17,7 +17,7 @@ class Search extends Component {
 			<input 
           		onSubmit ={this.handleSubmit}
 				type="text"
-				placeholder="Search Restaurants"
+				placeholder="Search"
         		value={this.props.query}
         		onChange={(event) => 
         			{this.props.updateQuery(event.target.value);
